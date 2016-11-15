@@ -4,7 +4,9 @@ YARM RIOT toolchain setup for a UBUNTU 16.04 LTS fresh install
 mkdir RIOT
 cd RIOT
 cp ../YARM-setup/test_RIOT_yarm .
+cp ../YARM-setup/test_RIOT_yarm .
 chmod +x test_RIOT_yarm.sh
 ./test_RIOT_yarm.sh           
+
 
 
