@@ -1,8 +1,0 @@
-lista comandi
-
-sudo apt-get install git
-
-
-  734  sudo apt-get install ia32-libs
-  735  sudo apt-get install lib32ncurses5
- 
