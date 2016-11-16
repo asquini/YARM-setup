@@ -1,12 +1,63 @@
 YARM RIOT toolchain setup for a UBUNTU 16.04 LTS fresh install
 
 (from home)
+sudo apt-get install lib32z1 libncurses5
+sudo apt-get install libtool
+sudo apt-get install automake
+sudo apt-get install libusb-1.0
+sudo apt-get install texinfo
+sudo apt-get install libudev-dev
+
+git clone https://github.com/signal11/hidapi.git
+cd hidapi/
+./bootstrap
+./configure
+make
+sudo make install
+nano ~/.profile
+      At the bottom of .profile, add the following line.
+
+PATH="$HOME/bin:/usr/local/lib:$PATH"
+
+      To save the file, press Ctrl+X then Press Y and finally to accept and exit the editor press Enter.
+      Inorder order to reload the system PATH variable, you will need to logout and back in of your user account. 
+echo $PATH
+	  you should see the updated PATH
+
+sudo ldconfig
+cd ~/
+
+git clone git://git.code.sf.net/p/openocd/code openocd
+cd openocd
+./bootstrap
+./configure --enable-cmsis-dap --enable-jlink
+make 
+sudo make install
+
 mkdir RIOT
 cd RIOT
-cp ../YARM-setup/test_RIOT_yarm .
+
+git clone https://github.com/ant9000/edbg 
+cd edbg 
+make 
+sudo cp edbg /usr/local/bin
+cd ..
+
+cp ../YARM-setup/99-atmel-ice.rules /etc/udev/rules.d/
+udevadm control —reload
+
+
+sudo addgroup $USER dialout
+
+
+cp ../YARM-setup/arm_toolchain.sh .
 cp ../YARM-setup/test_RIOT_yarm .
 chmod +x test_RIOT_yarm.sh
 ./test_RIOT_yarm.sh           
 
+(from $HOME/RIOT)
+. arm_toolchain.sh
+cd RIOT/tests/driver_ata8510
+BOARD=yarm make
 
 

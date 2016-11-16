@@ -17,7 +17,7 @@ if [ "`which arm-none-eabi-gcc`" != "$EXTRA_PATH/arm-none-eabi-gcc" ]; then
   export PATH=$EXTRA_PATH:$PATH
 fi
 
-exit 0
+#exit 0
 cd RIOT/examples/default
 
 BOARD=yarm make flash
