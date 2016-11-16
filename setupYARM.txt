@@ -67,13 +67,13 @@ chmod +x test_RIOT_yarm.sh
 
 
       to program the ata8510 EEPROM  (switch the YARM ice adapter on AVR)
-cp ../YARM-setup/firmware_S2_C0_9600.hex ./drivers/ata8510/firmware/
+cp ../YARM-setup/firmware_S2_C0_9600.hex ./RIOT/drivers/ata8510/firmware/
 cd RIOT/drivers/ata8510/firmware
 ./flash.sh firmware_S2_C0_9600.hex
 
 
 
-to program a continuous transmitter (few messages per second)
+to program a continuous transmitter (a few messages per second)
 (from $HOME/RIOT)
 . arm_toolchain.sh
 cd RIOT/tests/driver_ata8510
