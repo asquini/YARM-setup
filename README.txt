@@ -63,10 +63,10 @@ chmod +x test_RIOT_yarm.sh
       to install the toolchain and RIOT sources and then program the example default RIOT application:
 ./test_RIOT_yarm.sh           
 
+-----------------------------------------------------------------
 
 
-
-      to program the ata8510 EEPROM  (switch the YARM ice adapter on AVR)
+      to program the ata8510 EEPROM  ( switch the YARM ice adapter on AVR ! )
 cp ../YARM-setup/firmware_S2_C0_9600.hex ./RIOT/drivers/ata8510/firmware/
 cd RIOT/drivers/ata8510/firmware
 ./flash.sh firmware_S2_C0_9600.hex
